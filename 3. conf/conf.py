@@ -18,6 +18,8 @@ with open ("device.yaml","r") as target_file:
         output2 = net_connect2.send_command("show snmp community",use_textfsm=True)
         rprint(output2)
         rprint(output2[1]["name"]) # Accessing the 'name' field from the second entry
+        
+        
         if output2[0]["index"] == "cisco0":
             rprint("This is a Cisco Device")
 
