@@ -1,0 +1,5 @@
+ntp server 1.2.3.4
+snmp-server community TestCouumunity ro
+banner motd & This is an automated banner &
+router ospf 1
+network 0.0.0.0 255.255.255.255 area 0
