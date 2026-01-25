@@ -10,14 +10,17 @@ dev_conn = {
 }
 
 
-sub_tree_filter ="""
- <routing-state xmlns="urn:ietf:params:xml:ns:yang:ietf-routing">
- <routing-protocols>
- <name>
- </name>
- </routing-protocols>
- </routing-state>
+sub_tree_filter = """
+<interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+<interface>
+<name>
+</name>
+</interface>
+</interfaces> 
 """
 
+
+
 with manager.connect(**dev_conn) as netconf_target:
-    ouput = netconf_target.get_config(source="running", filter=("subtree", sub_tree_filter)).xml
+    output = netconf_target.get_config(source="running", filter=("subtree", sub_tree_filter)).xml
+    print(minidom.parseString(output).toprettyxml())
